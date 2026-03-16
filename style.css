@@ -516,8 +516,7 @@ body {
 
     .timeline-item.left .timeline-card::after,
     .timeline-item.right .timeline-card::after {
-        left: 12px;
-        right: auto;
+        display: none;
     }
 
     /* Cards */
