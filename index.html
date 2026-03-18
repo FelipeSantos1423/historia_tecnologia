@@ -29,7 +29,9 @@
             <p>Uma jornada através dos marcos mais importantes da história da computação e da internet</p>
             <div class="scroll-indicator">
                 <span>Desça para explorar</span>
-                <div class="arrow"></div>
+                <button id="scrollToTimeline" class="arrow-button" aria-label="Ir para timeline" >
+                    <div class="arrow"></div>
+                </button>
             </div>
         </div>
     </header>
@@ -42,7 +44,7 @@
 
             <!-- Card 1 - 1940 -->
             <div class="timeline-item left">
-                <div class="timeline-card">
+                <div class="timeline-card" data-detail-id="1940">
                     <div class="timeline-date">1940</div>
                     <h3>Primeiros Computadores</h3>
                     <p>
@@ -55,7 +57,7 @@
 
             <!-- Card 2 - 1969 -->
             <div class="timeline-item right">
-                <div class="timeline-card">
+                <div class="timeline-card" data-detail-id="1969">
                     <div class="timeline-date">1969</div>
                     <h3>ARPANET</h3>
                     <p>
@@ -68,7 +70,7 @@
 
             <!-- Card 3 - 1989 -->
             <div class="timeline-item left">
-                <div class="timeline-card">
+                <div class="timeline-card" data-detail-id="1989">
                     <div class="timeline-date">1989</div>
                     <h3>Criação da World Wide Web</h3>
                     <p>
@@ -81,7 +83,7 @@
 
             <!-- Card 4 - 2007 -->
             <div class="timeline-item right">
-                <div class="timeline-card">
+                <div class="timeline-card" data-detail-id="2007">
                     <div class="timeline-date">2007</div>
                     <h3>Lançamento do iPhone</h3>
                     <p>
@@ -94,7 +96,7 @@
 
             <!-- Card 5 - 2010 -->
             <div class="timeline-item left">
-                <div class="timeline-card">
+                <div class="timeline-card" data-detail-id="2010">
                     <div class="timeline-date">2010</div>
                     <h3>Computação em Nuvem</h3>
                     <p>
@@ -107,7 +109,7 @@
 
             <!-- Card 6 - 2020 -->
             <div class="timeline-item right">
-                <div class="timeline-card">
+                <div class="timeline-card" data-detail-id="2020">
                     <div class="timeline-date">2020</div>
                     <h3>Inteligência Artificial em Destaque</h3>
                     <p>
@@ -122,32 +124,50 @@
 
     <!-- Seção Sobre -->
     <section id="sobre" class="about">
-        <div class="about-content">
-            <h2>Sobre Este Projeto</h2>
-            <p>
-                Este é um projeto de portfólio que demonstra habilidades em HTML, CSS e JavaScript puro. 
-                A timeline interativa utiliza animações de scroll reveal para criar uma experiência visual 
-                moderna e envolvente.
-            </p>
-            <div class="about-features">
-                <div class="feature">
-                    <span class="feature-icon">🎨</span>
-                    <h4>Design Responsivo</h4>
-                    <p>Funciona perfeitamente em dispositivos móveis, tablets e desktops</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">✨</span>
-                    <h4>Animações Suaves</h4>
-                    <p>Transições e efeitos de scroll reveal para melhor experiência do usuário</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">⚡</span>
-                    <h4>Performance</h4>
-                    <p>Código otimizado com JavaScript vanilla, sem dependências externas</p>
-                </div>
+    <div class="about-content">
+        <h2>Sobre Este Projeto</h2>
+        <p>
+            Este projeto foi desenvolvido com o objetivo de demonstrar, na prática, a evolução da tecnologia ao longo das décadas,
+            utilizando uma abordagem interativa e visualmente envolvente. Além de apresentar marcos históricos importantes,
+            a aplicação também evidencia habilidades em desenvolvimento front-end, com foco em organização de código,
+            experiência do usuário (UX) e design moderno.
+        </p>
+        <p>
+            A timeline interativa permite ao usuário explorar eventos relevantes da história da computação de forma dinâmica,
+            enquanto recursos como animações, responsividade e carregamento otimizado garantem uma navegação fluida em diferentes dispositivos.
+            O projeto foi construído utilizando apenas tecnologias base da web, reforçando o domínio dos fundamentos.
+        </p>
+
+        <div class="about-features">
+            <div class="feature">
+                <span class="feature-icon">🎨</span>
+                <h4>Design Responsivo</h4>
+                <p>
+                    Interface adaptável que garante uma experiência consistente em smartphones, tablets e desktops,
+                    utilizando boas práticas de layout e media queries.
+                </p>
+            </div>
+
+            <div class="feature">
+                <span class="feature-icon">✨</span>
+                <h4>Animações Suaves</h4>
+                <p>
+                    Implementação de efeitos visuais e animações baseadas em scroll, proporcionando uma navegação
+                    mais dinâmica e agradável ao usuário.
+                </p>
+            </div>
+
+            <div class="feature">
+                <span class="feature-icon">⚡</span>
+                <h4>Performance</h4>
+                <p>
+                    Código leve e otimizado, desenvolvido com JavaScript puro (vanilla), sem uso de bibliotecas externas,
+                    garantindo rapidez no carregamento e execução.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">

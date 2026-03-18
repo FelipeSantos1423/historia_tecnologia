@@ -20,7 +20,90 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Timeline inicializada');
     initScrollReveal();
     setupSmoothScroll();
+    setupScrollToTimelineButton();
+    setupTimelineCardsClickable();
 });
+
+function setupScrollToTimelineButton() {
+    const button = document.getElementById('scrollToTimeline');
+    const target = document.getElementById('timeline');
+
+    if (!button || !target) return;
+
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = target.offsetTop - navHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    });
+}
+
+function setupTimelineCardsClickable() {
+    const cards = document.querySelectorAll('.timeline-card');
+
+    cards.forEach((card, index) => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+
+        const detailId = card.dataset.detailId;
+        const metaButton = card.querySelector('.card-meta');
+
+        const focusCard = () => {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const cardTop = card.getBoundingClientRect().top + window.pageYOffset;
+
+            window.scrollTo({
+                top: cardTop - navHeight - 10,
+                behavior: 'smooth'
+            });
+
+            document.querySelectorAll('.timeline-card.active').forEach(activeCard => {
+                activeCard.classList.remove('active');
+            });
+
+            card.classList.add('active');
+        };
+
+        card.addEventListener('click', () => focusCard());
+        card.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                focusCard();
+            }
+        });
+
+        if (metaButton) {
+            metaButton.setAttribute('role', 'button');
+            metaButton.setAttribute('tabindex', '0');
+            metaButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                if (detailId) {
+                    window.open(`details.html?id=${encodeURIComponent(detailId)}`, '_blank');
+                }
+            });
+            metaButton.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if (detailId) {
+                        window.open(`details.html?id=${encodeURIComponent(detailId)}`, '_blank');
+                    }
+                }
+            });
+        }
+
+        // Small ID for hash navigation and accessibility
+        const parentItem = card.closest('.timeline-item');
+        if (parentItem && !parentItem.id) {
+            parentItem.id = `item-${index + 1}`;
+        }
+    });
+}
 
 // ===================================
 // FUNÇÃO PRINCIPAL - SCROLL REVEAL

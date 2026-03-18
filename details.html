@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Timeline</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { padding-top: 80px; }
+        .detail-card { max-width: 900px; margin: 0 auto; background: rgba(10, 14, 39, 0.95); border-radius: 12px; padding: 30px; border: 1px solid var(--border-color); }
+        .detail-card h2 { font-size: 34px; margin-bottom: 20px; }
+        .detail-card p { color: var(--text-light); margin-bottom: 20px; }
+        .detail-card .back-link { display: inline-block; margin-top: 20px; color: var(--primary); text-decoration: none; border: 1px solid var(--primary); border-radius: 10px; padding: 10px 14px; transition: var(--transition); }
+        .detail-card .back-link:hover { background: var(--primary); color: var(--dark-bg); }
+    </style>
+</head>
+<body>
+    <main class="detail-card">
+        <h2 id="detail-title">Conteúdo não encontrado</h2>
+        <p id="detail-date"></p>
+        <p id="detail-description"></p>
+        <p id="detail-more"></p>
+        <a href="index.html#timeline" class="back-link">Voltar à Timeline</a>
+    </main>
+
+    <script>
+        const detailData = {
+    '1940': {
+        title: 'Primeiros Computadores (1940)',
+        date: '1940',
+        description: 'Durante a década de 1940, surgiram os primeiros computadores eletrônicos de grande escala, como o ENIAC (Electronic Numerical Integrator and Computer), considerado um dos marcos iniciais da computação moderna. Essas máquinas eram compostas por milhares de válvulas, ocupavam salas inteiras e consumiam enormes quantidades de energia, além de exigirem constante manutenção.',
+        more: 'Seu desenvolvimento esteve diretamente ligado ao contexto da Segunda Guerra Mundial, sendo utilizado principalmente para cálculos balísticos e simulações militares. A programação era realizada de forma manual, conectando cabos e ajustando painéis físicos, o que tornava o processo extremamente trabalhoso e demorado. Mesmo com essas limitações, esses sistemas estabeleceram conceitos fundamentais como processamento eletrônico de dados e automação de cálculos. A partir deles, surgiram evoluções importantes, como o uso de transistores, circuitos integrados e, posteriormente, os computadores pessoais, moldando toda a indústria tecnológica como conhecemos hoje.'
+    },
+
+    '1969': {
+        title: 'ARPANET (1969)',
+        date: '1969',
+        description: 'A ARPANET foi a primeira rede de computadores a implementar comutação de pacotes, uma tecnologia que permite dividir dados em pequenas partes e transmiti-las de forma eficiente entre diferentes máquinas. Criada pelo Departamento de Defesa dos Estados Unidos, sua proposta inicial era garantir comunicação resiliente entre centros de pesquisa, mesmo em cenários críticos.',
+        more: 'O primeiro teste ocorreu entre a UCLA e o Stanford Research Institute, onde a tentativa de enviar a palavra "LOGIN" resultou apenas em "LO" antes do sistema falhar. Apesar disso, esse momento entrou para a história como o nascimento da comunicação em rede. A ARPANET cresceu rapidamente, conectando universidades e instituições acadêmicas, e introduziu conceitos fundamentais como protocolos de comunicação e arquitetura de rede distribuída. Com o tempo, evoluiu para o que viria a ser a internet moderna, transformando completamente a forma como informações são compartilhadas globalmente.'
+    },
+
+    '1989': {
+        title: 'Criação da World Wide Web (1989)',
+        date: '1989',
+        description: 'Em 1989, Tim Berners-Lee propôs a criação da World Wide Web enquanto trabalhava no CERN, com o objetivo de facilitar o compartilhamento de informações entre pesquisadores. Para isso, desenvolveu três pilares fundamentais: o HTML (linguagem de marcação), o HTTP (protocolo de comunicação) e os URLs (endereços únicos para cada recurso).',
+        more: 'Essa combinação permitiu a criação de páginas interligadas por meio de hyperlinks, acessíveis através de navegadores. Em 1991, o primeiro site foi colocado no ar, marcando o início da expansão da Web para além do meio acadêmico. A partir daí, a internet deixou de ser apenas uma rede técnica e se tornou uma plataforma global de informação e comunicação. A Web revolucionou setores como educação, comércio e entretenimento, sendo responsável pelo surgimento de redes sociais, e-commerce e serviços digitais que fazem parte do cotidiano de bilhões de pessoas.'
+    },
+
+    '2007': {
+        title: 'Lançamento do iPhone (2007)',
+        date: '2007',
+        description: 'O lançamento do primeiro iPhone pela Apple, em 2007, marcou uma transformação profunda na indústria tecnológica ao reunir telefone, navegador de internet e reprodutor de mídia em um único dispositivo com interface totalmente touchscreen.',
+        more: 'Apresentado por Steve Jobs, o iPhone introduziu uma experiência de uso baseada em gestos, eliminando teclados físicos e tornando a interação mais intuitiva. Em 2008, a criação da App Store abriu espaço para desenvolvedores criarem aplicações, dando origem a um ecossistema que revolucionou o mercado digital. O impacto foi imediato: empresas passaram a desenvolver soluções mobile-first, e os smartphones se tornaram ferramentas essenciais para comunicação, trabalho, entretenimento e acesso à informação, redefinindo completamente o comportamento da sociedade moderna.'
+    },
+
+    '2010': {
+        title: 'Computação em Nuvem (2010)',
+        date: '2010',
+        description: 'A computação em nuvem ganhou força na década de 2010, permitindo que dados, aplicações e serviços fossem armazenados e acessados remotamente por meio da internet, eliminando a necessidade de infraestrutura física local.',
+        more: 'Empresas como Amazon (AWS), Microsoft (Azure) e Google (Cloud Platform) passaram a oferecer serviços escaláveis nos modelos IaaS, PaaS e SaaS, permitindo que empresas utilizassem recursos sob demanda. Isso reduziu custos operacionais, aumentou a flexibilidade e acelerou o desenvolvimento de sistemas. A nuvem também possibilitou o crescimento de tecnologias como Big Data, inteligência artificial e streaming, tornando-se um dos principais pilares da transformação digital e da economia moderna baseada em dados.'
+    },
+
+    '2020': {
+        title: 'IA em Destaque (2020)',
+        date: '2020',
+        description: 'A partir de 2020, a Inteligência Artificial passou a ocupar um papel central na inovação tecnológica, impulsionada por avanços em machine learning, deep learning e processamento de linguagem natural.',
+        more: 'Modelos cada vez mais sofisticados começaram a ser utilizados em diversas áreas, como saúde, finanças, transporte e indústria, permitindo automação de processos, análise preditiva e tomada de decisões baseada em dados. Tecnologias como assistentes virtuais, sistemas de recomendação e reconhecimento facial tornaram-se comuns no cotidiano. Ao mesmo tempo, o avanço da IA trouxe debates importantes sobre ética, privacidade, viés algorítmico e impacto no mercado de trabalho, consolidando-se como uma das áreas mais influentes e discutidas da atualidade.'
+    }
+};
+
+        const params = new URLSearchParams(location.search);
+        const id = params.get('id');
+        const data = detailData[id];
+
+        const titleEl = document.getElementById('detail-title');
+        const dateEl = document.getElementById('detail-date');
+        const descEl = document.getElementById('detail-description');
+        const moreEl = document.getElementById('detail-more');
+
+        if (data) {
+            titleEl.textContent = data.title;
+            dateEl.textContent = 'Ano: ' + data.date;
+            descEl.textContent = data.description;
+            moreEl.textContent = data.more;
+        } else {
+            titleEl.textContent = 'Detalhes não encontrados';
+            dateEl.textContent = '';
+            descEl.textContent = 'Não foi possível localizar informações adicionais para este item.';
+            moreEl.textContent = '';
+        }
+    </script>
+</body>
+</html>
